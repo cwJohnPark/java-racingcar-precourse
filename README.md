@@ -5,3 +5,10 @@
 
 ## 과제 제출 과정
 * [과제 제출 방법](https://github.com/next-step/nextstep-docs/tree/master/precourse)
+
+## 기능 요구 사항
+
+### 모델
+- 자동차(Car)
+    - 자동차 이름(CarName)
+        - 자동차 이름은 문자열로 구성되며, 5자 이하만 가능하다.
