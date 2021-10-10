@@ -1,8 +1,8 @@
-package racinggame.domain;
+package racinggame.domain.car;
 
 import java.util.Objects;
 
-import racinggame.domain.exception.InvalidCarNameException;
+import racinggame.domain.car.exception.InvalidCarNameException;
 
 public class CarName {
 
@@ -38,5 +38,10 @@ public class CarName {
 	@Override
 	public int hashCode() {
 		return Objects.hash(name);
+	}
+
+	@Override
+	public String toString() {
+		return name;
 	}
 }

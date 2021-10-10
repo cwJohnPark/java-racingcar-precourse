@@ -1,4 +1,4 @@
-package racinggame.domain;
+package racinggame.domain.car;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import racinggame.domain.exception.InvalidCarNameException;
+import racinggame.domain.car.exception.InvalidCarNameException;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarNameTest {

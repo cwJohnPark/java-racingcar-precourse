@@ -1,4 +1,4 @@
-package racinggame.domain.exception;
+package racinggame.domain.car.exception;
 
 public class InvalidCarNameException extends IllegalArgumentException {
 
