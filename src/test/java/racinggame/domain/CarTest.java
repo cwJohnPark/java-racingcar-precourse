@@ -12,8 +12,10 @@ class CarTest {
 
 	@ParameterizedTest
 	@ValueSource(strings = {"car", "mine", "me"})
-	void 자동차는_이름을_갖는다(String carName) {
-		Car car = Car.from(CarName.valueOf(carName));
+	void 자동차_생성_테스트(String carName) {
+		Car car = Car.of(CarName.valueOf(carName), () -> MovementType.FORWARD);
+
 		assertThat(car.isNameOf(CarName.valueOf(carName))).isTrue();
+		assertThat(car.move()).isEqualTo(MovementType.FORWARD);
 	}
 }
