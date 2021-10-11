@@ -2,11 +2,11 @@ package racinggame.ui.handler;
 
 import java.util.function.Supplier;
 
-import racinggame.domain.car.CarNames;
-
 public class InputHandler<T> {
 
-	public static InputHandler<CarNames> createHandler() {
+	private static final String INTEGER_PARSING_EXCEPTION_MESSAGE = "[ERROR] 숫자만 입력할 수 있습니다.";
+
+	public static <T> InputHandler<T> createHandler() {
 		return new InputHandler<>();
 	}
 
@@ -22,10 +22,12 @@ public class InputHandler<T> {
 		try {
 			final T inputResult = supplier.get();
 			return InputHandlerResult.createSuccess(inputResult);
+		} catch (NumberFormatException nfe) {
+			System.out.println(INTEGER_PARSING_EXCEPTION_MESSAGE);
 		} catch (Exception e) {
-			System.err.println(e.getMessage());
-			return InputHandlerResult.createFail();
+			System.out.println(e.getMessage());
 		}
+		return InputHandlerResult.createFail();
 	}
 
 }

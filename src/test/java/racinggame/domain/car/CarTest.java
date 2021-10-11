@@ -24,10 +24,6 @@ class CarTest {
 			Arguments.of(
 				RaceCount.valueOf(3),
 				Position.valueOf(3)
-			),
-			Arguments.of(
-				RaceCount.valueOf(0),
-				Position.valueOf(0)
 			)
 		);
 	}

@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+import racinggame.domain.exception.InvalidRaceCountInputException;
+
 public class RaceCount implements Iterable<Integer>, Iterator<Integer> {
 
 	private final int step;
@@ -15,7 +17,14 @@ public class RaceCount implements Iterable<Integer>, Iterator<Integer> {
 	}
 
 	public static RaceCount valueOf(int count) {
+		inspectRange(count);
 		return new RaceCount(count);
+	}
+
+	private static void inspectRange(int count) {
+		if (count < 1) {
+			throw new InvalidRaceCountInputException();
+		}
 	}
 
 	@Override
