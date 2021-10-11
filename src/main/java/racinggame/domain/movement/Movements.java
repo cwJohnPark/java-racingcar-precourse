@@ -33,4 +33,8 @@ public class Movements {
 	public Position getPositionAt(RaceStep raceStep) {
 		return raceStep.getPositionOf(movements);
 	}
+
+	public int getSize() {
+		return movements.size();
+	}
 }

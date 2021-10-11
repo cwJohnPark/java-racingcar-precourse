@@ -1,6 +1,7 @@
 package racinggame.domain.movement;
 
 import racinggame.domain.Position;
+import racinggame.domain.RaceStep;
 import racinggame.domain.car.CarName;
 
 public class MovementsResult {
@@ -20,4 +21,15 @@ public class MovementsResult {
 		return movements.getFinalPosition();
 	}
 
+	public CarName getCarName() {
+		return carName;
+	}
+
+	public RaceStep getRaceStep() {
+		return RaceStep.valueOf(movements.getSize());
+	}
+
+	public Position getPositionAt(RaceStep raceStep) {
+		return movements.getPositionAt(raceStep);
+	}
 }

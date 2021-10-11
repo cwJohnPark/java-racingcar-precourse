@@ -6,14 +6,12 @@ import java.util.function.Consumer;
 
 import racinggame.domain.exception.InvalidRaceCountInputException;
 
-public class RaceCount implements Iterable<Integer>, Iterator<Integer> {
+public class RaceCount implements Iterable<Integer> {
 
 	private final int step;
-	private int currentCount;
 
 	private RaceCount(Integer step) {
 		this.step = step;
-		this.currentCount = 0;
 	}
 
 	public static RaceCount valueOf(int count) {
@@ -29,7 +27,7 @@ public class RaceCount implements Iterable<Integer>, Iterator<Integer> {
 
 	@Override
 	public Iterator<Integer> iterator() {
-		return this;
+		return new RaceCountIterator(step);
 	}
 
 	@Override
@@ -37,16 +35,6 @@ public class RaceCount implements Iterable<Integer>, Iterator<Integer> {
 		for (int count : this) {
 			action.accept(count);
 		}
-	}
-
-	@Override
-	public boolean hasNext() {
-		return step > currentCount;
-	}
-
-	@Override
-	public Integer next() {
-		return currentCount++;
 	}
 
 	@Override
@@ -58,13 +46,32 @@ public class RaceCount implements Iterable<Integer>, Iterator<Integer> {
 			return false;
 		}
 		RaceCount raceCount = (RaceCount)other;
-		return Objects.equals(step, raceCount.step) &&
-			Objects.equals(currentCount, raceCount.currentCount);
+		return Objects.equals(step, raceCount.step);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(step, currentCount);
+		return Objects.hash(step);
+	}
+
+	static class RaceCountIterator implements Iterator<Integer> {
+		private final int totalCount;
+		private int currentCount;
+
+		public RaceCountIterator(int totalCount) {
+			this.totalCount = totalCount;
+			this.currentCount = 0;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return totalCount > currentCount;
+		}
+
+		@Override
+		public Integer next() {
+			return currentCount++;
+		}
 	}
 
 }
