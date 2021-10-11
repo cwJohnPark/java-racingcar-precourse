@@ -18,6 +18,10 @@ public class Position {
 		return new Position(position);
 	}
 
+	public boolean isAheadOf(Position otherPosition) {
+		return position > otherPosition.position;
+	}
+
 	@Override
 	public String toString() {
 		return getResultAsString();

@@ -26,11 +26,16 @@ public class CarNames {
 		return new CarNames(carNameList);
 	}
 
-	public int size() {
-		return carNames.size();
+	public void add(CarName carName) {
+		carNames.add(carName);
 	}
 
-	public boolean containsAll(List<CarName> carNameList) {
-		return carNames.containsAll(carNameList);
+	public List<String> toStringArray() {
+		final List<String> carNamesStringList = new ArrayList<>();
+		for (CarName carName : carNames) {
+			carNamesStringList.add(carName.toString());
+		}
+
+		return carNamesStringList;
 	}
 }

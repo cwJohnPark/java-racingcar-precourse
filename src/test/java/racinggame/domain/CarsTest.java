@@ -50,6 +50,43 @@ class CarsTest {
 		);
 	}
 
+	private static Stream<Arguments> provideRaceChampionCars() {
+		return Stream.of(
+			Arguments.of(
+				RaceCount.valueOf(5),
+				Cars.from(
+					Arrays.asList(
+						Car.of(CarName.valueOf("car1"), () -> MovementType.FORWARD),
+						Car.of(CarName.valueOf("car2"), () -> MovementType.FORWARD),
+						Car.of(CarName.valueOf("car3"), () -> MovementType.FORWARD)
+					)
+				),
+				"car1,car2,car3"
+			),
+			Arguments.of(
+				RaceCount.valueOf(3),
+				Cars.from(
+					Arrays.asList(
+						Car.of(CarName.valueOf("car1"), () -> MovementType.FORWARD),
+						Car.of(CarName.valueOf("car2"), () -> MovementType.STOP)
+					)
+				),
+				"car1"
+			),
+			Arguments.of(
+				RaceCount.valueOf(3),
+				Cars.from(
+					Arrays.asList(
+						Car.of(CarName.valueOf("car1"), () -> MovementType.STOP),
+						Car.of(CarName.valueOf("car2"), () -> MovementType.STOP),
+						Car.of(CarName.valueOf("car3"), () -> MovementType.STOP)
+					)
+				),
+				"car1,car2,car3"
+			)
+		);
+	}
+
 	@ParameterizedTest
 	@MethodSource("provideCarListAndDriver")
 	void 주어진_자동차_이동_횟수_만큼의_경주_완료_후_각_시행별_위치_결과를_반환_받는다(RaceCount raceCount, Cars cars,
@@ -59,10 +96,20 @@ class CarsTest {
 
 		System.out.println(raceResult.getDescription());
 
-		assertThat(raceResult.totalRaces()).isEqualTo(raceCount);
 		expectedPositions.forEach(
 			expectedPosition -> assertThat(raceResult.getDescription()).contains(expectedPosition.toString())
 		);
+	}
+
+	@ParameterizedTest
+	@MethodSource("provideRaceChampionCars")
+	void 주어진_자동차_이동_횟수_만큼의_경주_완료_후_우승자_결과를_반환_받는다(RaceCount raceCount, Cars cars, String champions) {
+
+		RaceResult raceResult = cars.startRace(raceCount);
+
+		System.out.println(raceResult.getDescription());
+
+		assertThat(raceResult.getDescription()).contains(champions);
 	}
 
 }

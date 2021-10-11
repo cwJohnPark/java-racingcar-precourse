@@ -13,8 +13,8 @@ public class MovementsResult {
 		this.carName = carName;
 	}
 
-	public static MovementsResult of(Movements movementsTemp, CarName carName) {
-		return new MovementsResult(movementsTemp, carName);
+	public static MovementsResult of(Movements movements, CarName carName) {
+		return new MovementsResult(movements, carName);
 	}
 
 	public Position getFinalPosition() {
@@ -23,10 +23,6 @@ public class MovementsResult {
 
 	public CarName getCarName() {
 		return carName;
-	}
-
-	public RaceStep getRaceStep() {
-		return RaceStep.valueOf(movements.getSize());
 	}
 
 	public Position getPositionAt(RaceStep raceStep) {
