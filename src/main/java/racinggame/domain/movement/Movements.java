@@ -27,7 +27,7 @@ public class Movements {
 	}
 
 	public Position getFinalPosition() {
-		return getPositionAt(RaceStep.valueOf(movements.size() - 1));
+		return movements.isEmpty() ? Position.START_POSITION : getPositionAt(RaceStep.valueOf(movements.size() - 1));
 	}
 
 	public Position getPositionAt(RaceStep raceStep) {
