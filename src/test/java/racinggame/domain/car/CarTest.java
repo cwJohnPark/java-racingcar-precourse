@@ -4,8 +4,6 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -16,7 +14,6 @@ import racinggame.domain.RaceCount;
 import racinggame.domain.movement.MovementType;
 import racinggame.domain.movement.MovementsResult;
 
-@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class CarTest {
 
 	private static Stream<Arguments> provideMovements() {

@@ -7,8 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.DisplayNameGeneration;
-import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -16,7 +14,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import racinggame.domain.Position;
 import racinggame.domain.RaceStep;
 
-@DisplayNameGeneration(ReplaceUnderscores.class)
 class MovementsTest {
 
 	private static Stream<Arguments> provideCarListMovementsPerStep() {
