@@ -1,9 +1,11 @@
 package racinggame.domain.car;
 
-import racinggame.domain.RaceCount;
+import racinggame.domain.car.cardriver.CarDriver;
+import racinggame.domain.car.carname.CarName;
 import racinggame.domain.movement.MovementType;
 import racinggame.domain.movement.Movements;
 import racinggame.domain.movement.MovementsResult;
+import racinggame.domain.race.RaceCount;
 
 public class Car {
 

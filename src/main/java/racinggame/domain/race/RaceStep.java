@@ -1,6 +1,8 @@
-package racinggame.domain;
+package racinggame.domain.race;
 
 import java.util.List;
+
+import racinggame.domain.car.position.Position;
 
 public class RaceStep {
 

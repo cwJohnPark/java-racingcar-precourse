@@ -1,4 +1,4 @@
-package racinggame.domain;
+package racinggame.domain.race;
 
 import java.util.Iterator;
 import java.util.Objects;
@@ -54,7 +54,7 @@ public class RaceCount implements Iterable<Integer> {
 		return Objects.hash(step);
 	}
 
-	static class RaceCountIterator implements Iterator<Integer> {
+	private static class RaceCountIterator implements Iterator<Integer> {
 		private final int totalCount;
 		private int currentCount;
 

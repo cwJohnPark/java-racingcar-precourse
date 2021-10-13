@@ -3,9 +3,9 @@ package racinggame.domain.car;
 import java.util.ArrayList;
 import java.util.List;
 
-import racinggame.domain.RaceCount;
-import racinggame.domain.RaceResult;
 import racinggame.domain.movement.MovementsResult;
+import racinggame.domain.race.RaceCount;
+import racinggame.domain.race.RaceResult;
 
 public class Cars {
 

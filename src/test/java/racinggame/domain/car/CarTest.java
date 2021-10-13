@@ -9,10 +9,11 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import racinggame.domain.Position;
-import racinggame.domain.RaceCount;
+import racinggame.domain.car.carname.CarName;
+import racinggame.domain.car.position.Position;
 import racinggame.domain.movement.MovementType;
 import racinggame.domain.movement.MovementsResult;
+import racinggame.domain.race.RaceCount;
 
 class CarTest {
 

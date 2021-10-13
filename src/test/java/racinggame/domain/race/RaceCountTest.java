@@ -1,4 +1,4 @@
-package racinggame.domain;
+package racinggame.domain.race;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.*;
 

@@ -1,4 +1,4 @@
-package racinggame.domain.car;
+package racinggame.domain.car.cardriver;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.*;
 import static org.mockito.ArgumentMatchers.*;

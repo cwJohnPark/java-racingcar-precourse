@@ -1,8 +1,8 @@
 package racinggame.domain.movement;
 
-import racinggame.domain.Position;
-import racinggame.domain.RaceStep;
-import racinggame.domain.car.CarName;
+import racinggame.domain.car.carname.CarName;
+import racinggame.domain.car.position.Position;
+import racinggame.domain.race.RaceStep;
 
 public class MovementsResult {
 	private final Movements movements;

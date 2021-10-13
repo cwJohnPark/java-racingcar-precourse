@@ -1,9 +1,10 @@
-package racinggame.domain.car;
+package racinggame.domain.car.carname;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class CarNames {
+public class CarNames implements Iterable<CarName> {
 	private static final String CAR_NAME_SEPARATOR = ",";
 
 	private final List<CarName> carNames;
@@ -37,5 +38,31 @@ public class CarNames {
 		}
 
 		return carNamesStringList;
+	}
+
+	@Override
+	public Iterator<CarName> iterator() {
+		return new CarNamesIterator(carNames);
+	}
+
+	private static class CarNamesIterator implements Iterator<CarName> {
+
+		private final List<CarName> carNames;
+		private int count;
+
+		public CarNamesIterator(List<CarName> carNames) {
+			this.carNames = carNames;
+			count = 0;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return carNames.size() > count;
+		}
+
+		@Override
+		public CarName next() {
+			return carNames.get(count++);
+		}
 	}
 }

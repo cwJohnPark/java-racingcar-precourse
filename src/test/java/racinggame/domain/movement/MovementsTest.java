@@ -11,8 +11,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import racinggame.domain.Position;
-import racinggame.domain.RaceStep;
+import racinggame.domain.car.position.Position;
+import racinggame.domain.race.RaceStep;
 
 class MovementsTest {
 

@@ -1,7 +1,7 @@
 package racinggame.ui.handler.car;
 
 import nextstep.utils.Console;
-import racinggame.domain.car.CarNames;
+import racinggame.domain.car.carname.CarNames;
 import racinggame.ui.handler.InputHandler;
 
 public class CarNamesInputHandler {

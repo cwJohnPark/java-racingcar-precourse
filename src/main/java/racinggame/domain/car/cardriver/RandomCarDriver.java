@@ -1,4 +1,4 @@
-package racinggame.domain.car;
+package racinggame.domain.car.cardriver;
 
 import static racinggame.domain.movement.MovementType.*;
 

@@ -1,17 +1,18 @@
-package racinggame.domain;
+package racinggame.domain.race;
 
 import static java.lang.String.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import racinggame.domain.car.CarNames;
+import racinggame.domain.car.carname.CarNames;
+import racinggame.domain.car.position.Position;
 import racinggame.domain.movement.MovementsResult;
 
 public class RaceResult {
 
 	private static final String CHAMPION_ANNOUNCEMENT_FORMAT = "최종 우승자는 %s 입니다.";
-	private static final String RACE_STEP_ANNOUNCEMENT_FORMAT = "%s: %s\n";
+	private static final String RACE_STEP_ANNOUNCEMENT_FORMAT = "%s : %s\n";
 
 	private final List<MovementsResult> movementsResults;
 	private final RaceCount totalRaces;
@@ -29,7 +30,6 @@ public class RaceResult {
 		StringBuilder stringBuilder = new StringBuilder();
 		for (int count : totalRaces) {
 			stringBuilder.append(getDescriptionStepAt(RaceStep.valueOf(count)));
-			stringBuilder.append("\n");
 		}
 
 		stringBuilder.append(getDescriptionOfChampion());

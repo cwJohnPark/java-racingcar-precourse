@@ -1,4 +1,4 @@
-package racinggame.domain;
+package racinggame.domain.car;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -10,10 +10,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import racinggame.domain.car.Car;
-import racinggame.domain.car.CarName;
-import racinggame.domain.car.Cars;
+import racinggame.domain.car.carname.CarName;
+import racinggame.domain.car.position.Position;
 import racinggame.domain.movement.MovementType;
+import racinggame.domain.race.RaceCount;
+import racinggame.domain.race.RaceResult;
 
 class CarsTest {
 

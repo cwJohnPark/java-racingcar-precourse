@@ -3,8 +3,8 @@ package racinggame.domain.movement;
 import java.util.ArrayList;
 import java.util.List;
 
-import racinggame.domain.Position;
-import racinggame.domain.RaceStep;
+import racinggame.domain.car.position.Position;
+import racinggame.domain.race.RaceStep;
 
 public class Movements {
 	private final List<Position> movements;

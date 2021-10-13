@@ -1,7 +1,7 @@
 package racinggame.ui.handler.racecount;
 
 import nextstep.utils.Console;
-import racinggame.domain.RaceCount;
+import racinggame.domain.race.RaceCount;
 import racinggame.ui.handler.InputHandler;
 
 public class RaceCountInputHandler {
@@ -12,7 +12,10 @@ public class RaceCountInputHandler {
 
 	public static RaceCount inputRaceCount() {
 		return inputHandler.retryUntilComplete(
-			() -> RaceCount.valueOf(Integer.parseInt(Console.readLine()))
+			() -> {
+				System.out.println(CAR_NAME_INPUT_ANNOUNCEMENT);
+				return RaceCount.valueOf(Integer.parseInt(Console.readLine()));
+			}
 		);
 	}
 }

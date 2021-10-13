@@ -2,6 +2,8 @@ package racinggame.ui.handler;
 
 import java.util.function.Supplier;
 
+import racinggame.domain.exception.RacingGameException;
+
 public class InputHandler<T> {
 
 	private static final String INTEGER_PARSING_EXCEPTION_MESSAGE = "[ERROR] 숫자만 입력할 수 있습니다.";
@@ -24,7 +26,7 @@ public class InputHandler<T> {
 			return InputHandlerResult.createSuccess(inputResult);
 		} catch (NumberFormatException nfe) {
 			System.out.println(INTEGER_PARSING_EXCEPTION_MESSAGE);
-		} catch (Exception e) {
+		} catch (RacingGameException e) {
 			System.out.println(e.getMessage());
 		}
 		return InputHandlerResult.createFail();

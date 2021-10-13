@@ -1,4 +1,4 @@
-package racinggame.domain;
+package racinggame.domain.car.position;
 
 import static org.assertj.core.api.Assertions.*;
 import static racinggame.domain.movement.MovementType.*;

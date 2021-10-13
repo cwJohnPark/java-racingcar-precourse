@@ -1,27 +1,37 @@
 package racinggame.ui.handler;
 
+import static racinggame.ui.handler.InputResult.*;
+
+import java.util.Objects;
+
 public class InputHandlerResult<T> {
-	private final InputResult exceptionChecker;
+	private final InputResult inputResult;
 	private final T resultData;
 
-	private InputHandlerResult(InputResult exceptionChecker, T resultData) {
-		this.exceptionChecker = exceptionChecker;
+	private InputHandlerResult(InputResult inputResult, T resultData) {
+		this.inputResult = inputResult;
 		this.resultData = resultData;
 	}
 
 	public static <T> InputHandlerResult<T> createSuccess(T inputResult) {
-		return new InputHandlerResult<>(InputResult.SUCCESS, inputResult);
+		if (Objects.isNull(inputResult)) {
+			throw new RuntimeException();
+		}
+		return new InputHandlerResult<>(SUCCESS, inputResult);
 	}
 
 	public static <T> InputHandlerResult<T> createFail() {
-		return new InputHandlerResult<>(InputResult.FAILED, null);
+		return new InputHandlerResult<>(FAILED, null);
 	}
 
 	public T getResult() {
+		if (inputResult == FAILED) {
+			throw new RuntimeException();
+		}
 		return resultData;
 	}
 
 	public boolean isFailed() {
-		return exceptionChecker == InputResult.FAILED;
+		return inputResult == FAILED;
 	}
 }
