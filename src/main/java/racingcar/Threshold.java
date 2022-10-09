@@ -9,6 +9,10 @@ public class Threshold {
     }
 
     public boolean isAbove(int other) {
-        return thresholdInclusive <= other;
+        return other > thresholdInclusive;
+    }
+
+    public boolean isAboveOrEqualTo(int other) {
+        return other >= thresholdInclusive;
     }
 }

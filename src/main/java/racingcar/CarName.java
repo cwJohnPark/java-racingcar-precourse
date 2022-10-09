@@ -4,10 +4,18 @@ import java.util.Objects;
 
 public class CarName {
 
+    private static final Threshold VALID_LENGTH_THRESHOLD = new Threshold(5);
     private final String carName;
 
     public CarName(String carName) {
         this.carName = carName;
+        validateCarNameLength(carName);
+    }
+
+    private void validateCarNameLength(String carName) {
+        if (VALID_LENGTH_THRESHOLD.isAbove(carName.length())) {
+            throw new IllegalArgumentException();
+        }
     }
 
     @Override

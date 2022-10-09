@@ -14,7 +14,7 @@ public class RandomMoveCondition {
     }
 
     public boolean doMove() {
-        return thresholdInclusive.isAbove(
+        return thresholdInclusive.isAboveOrEqualTo(
                 Randoms.pickNumberInRange(numberRange.getMinNumber(), numberRange.getMaxNumber()));
     }
 }
