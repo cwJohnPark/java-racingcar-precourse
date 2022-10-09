@@ -13,8 +13,8 @@ public class RacingCar {
         this.moveResult = new ArrayList<>();
     }
 
-    public List<MoveType> getTotalMovements() {
-        return moveResult;
+    public Movements getTotalMovements() {
+        return new Movements(moveResult);
     }
 
     public void move(RandomMoveCondition randomMoveCondition) {

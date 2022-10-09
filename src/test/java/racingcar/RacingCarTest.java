@@ -38,7 +38,8 @@ class RacingCarTest {
 
         racingCar.move(randomMoveCondition);
 
-        assertThat(racingCar.getTotalMovements()).containsExactly(MoveType.FORWARD);
+        assertThat(racingCar.getTotalMovements())
+                .isEqualTo(new Movements(MoveType.FORWARD));
     }
 
     @Test
@@ -50,7 +51,9 @@ class RacingCarTest {
 
         racingCar.move(randomMoveCondition);
 
-        assertThat(racingCar.getTotalMovements()).containsExactly(MoveType.STOP);
+
+        assertThat(racingCar.getTotalMovements())
+                .isEqualTo(new Movements(MoveType.STOP));
     }
 
     @Test
