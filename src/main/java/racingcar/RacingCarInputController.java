@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 public class RacingCarInputController {
 
-    private final static String PROMPT = "경주할 자동차 이름 (이름은 쉼표(,) 기준으로 구분)";
+    private final static String CAR_NAMES_PROMPT = "경주할 자동차 이름 (이름은 쉼표(,) 기준으로 구분)";
+    private final static String MOVE_COUNT_PROMPT = "• 시도할회수";
     private final static String CAR_NAME_SPLITTER = ",";
 
     private final Scanner scanner;
@@ -17,7 +18,7 @@ public class RacingCarInputController {
     }
 
     public CarNames inputCarNames() {
-        System.out.println(PROMPT);
+        System.out.println(CAR_NAMES_PROMPT);
 
         List<String> carNamesLiteral = getCarNamesLiteral();
 
@@ -27,6 +28,17 @@ public class RacingCarInputController {
         }
 
         return carNames;
+    }
+
+    public MoveCount inputMoveCount() {
+        System.out.println(MOVE_COUNT_PROMPT);
+
+        return getMoveCount();
+    }
+
+    private MoveCount getMoveCount() {
+        String moveCountLiteral = scanner.nextLine();
+        return new MoveCount(Integer.parseInt(moveCountLiteral));
     }
 
     private List<String> getCarNamesLiteral() {

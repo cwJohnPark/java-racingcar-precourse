@@ -1,6 +1,5 @@
 package racingcar;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -13,22 +12,41 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class RacingCarInputControllerTest {
 
     final String carNames = "woni,jihee,monky";
+    final int MOVE_COUNT = 5;
 
-    @BeforeEach
-    void setStreams() {
-        setCarNamesInStreams();
+    RacingCarInputController inputController;
+
+    void setCarNames() {
         setSystemOut();
+        setCarNamesInStreams();
+
+        inputController = new RacingCarInputController(new Scanner(System.in));
+    }
+
+    void setMoveCount() {
+        setSystemOut();
+        setMoveCountInStreams();
+
+        inputController = new RacingCarInputController(new Scanner(System.in));
     }
 
     @Test
     void 여러_대의_자동차_이름을_쉼표로_구분하여_입력_받는다() {
-        CarNames expectedCarNames = getCarNames();
+        setCarNames();
 
-        RacingCarInputController inputController = new RacingCarInputController(new Scanner(System.in));
+        CarNames expectedCarNames = getCarNames();
 
         CarNames actualCarNames = inputController.inputCarNames();
 
         assertThat(actualCarNames).isEqualTo(expectedCarNames);
+    }
+
+    @Test
+    void 사용자는_자동차의_이동_횟수를_입력할_수_있다() {
+        setMoveCount();
+
+        MoveCount moveCount = inputController.inputMoveCount();
+        assertThat(moveCount).isEqualTo(new MoveCount(MOVE_COUNT));
     }
 
     public CarNames getCarNames() {
@@ -39,6 +57,10 @@ class RacingCarInputControllerTest {
         }
 
         return carNames;
+    }
+
+    private void setMoveCountInStreams() {
+        System.setIn(new ByteArrayInputStream(String.valueOf(MOVE_COUNT).getBytes()));
     }
 
     private void setCarNamesInStreams() {
