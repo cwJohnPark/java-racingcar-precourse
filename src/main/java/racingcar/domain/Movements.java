@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import org.assertj.core.util.Lists;
 

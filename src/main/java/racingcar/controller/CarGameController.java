@@ -1,4 +1,6 @@
-package racingcar;
+package racingcar.controller;
+
+import racingcar.domain.*;
 
 public class CarGameController {
 

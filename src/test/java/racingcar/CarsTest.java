@@ -2,6 +2,7 @@ package racingcar;
 
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,4 +1,8 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.domain.CarName;
+import racingcar.domain.CarNames;
+import racingcar.domain.MoveCount;
 
 import java.util.ArrayList;
 import java.util.Arrays;

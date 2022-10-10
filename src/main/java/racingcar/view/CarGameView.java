@@ -1,4 +1,9 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.controller.CarGameController;
+import racingcar.controller.CarGameResponse;
+import racingcar.domain.CarNames;
+import racingcar.domain.MoveCount;
 
 public class CarGameView {
 
