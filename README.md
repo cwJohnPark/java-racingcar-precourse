@@ -16,9 +16,7 @@
 - [x] 자동차 경주 게임의 각 차수별로 이동거리를 알 수 있다
 - [x] 자동차 경주 게임을 완료한 후 누가 우승 했는지를 알려준다.
 - [x] 우승자가 한 명 이상일 경우, 쉼표(,)로 이름을 구분해 출력한다.
-- [ ] 사용자가 잘못된 값을 입력할경우 IllegalArgumentException를 발생시키고, "[ERROR]"로 시작하는 에러메시지를 출력 후 그 부분부터 입력을 다시받는다.
-- [ ] Exception이 아닌 IllegalArgumentException, IllegalStateException 등과 같은 명확한 유형을 처리한다.
-
+외
 ## 프로그램 요구사항 1
 - 자동차 경주 게임을 실행하는 시작점은 src/main/java 폴더의 racinggame.Application의 main()이다.
 - 자동차 경주 게임은 JDK8 버전에서 실행가능해야 한다. JDK8에서 정상 동작하지 않을 경우 0점 처리한다.

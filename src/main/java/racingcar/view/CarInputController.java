@@ -27,8 +27,9 @@ public class CarInputController {
         List<String> carNamesLiteral = getCarNamesLiteral();
 
         CarNames carNames = CarNames.createEmpty();
-        for (int i = 0; i < carNamesLiteral.size(); i++) {
-            carNames.add(new CarName(carNamesLiteral.get(i)));
+        for (String carNameLiteral : carNamesLiteral) {
+            CarName carName = new CarName(carNameLiteral);
+            carNames.add(carName);
         }
 
         return carNames;
@@ -42,7 +43,15 @@ public class CarInputController {
 
     private MoveCount getMoveCount() {
         String moveCountLiteral = scanner.nextLine();
-        return new MoveCount(Integer.parseInt(moveCountLiteral));
+        return new MoveCount(parseToInt(moveCountLiteral));
+    }
+
+    private int parseToInt(String moveCountLiteral) {
+        try {
+            return Integer.parseInt(moveCountLiteral);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     private List<String> getCarNamesLiteral() {
