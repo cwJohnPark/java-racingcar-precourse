@@ -27,4 +27,16 @@ public class MoveCount {
     public int hashCode() {
         return Objects.hash(moveCount);
     }
+
+    public boolean isStopToMove() {
+        return moveCount <= 0;
+    }
+
+    public MoveCount decrease() {
+        return new MoveCount(moveCount-1);
+    }
+
+    public boolean isEqualTo(int moveCount) {
+        return this.moveCount == moveCount;
+    }
 }

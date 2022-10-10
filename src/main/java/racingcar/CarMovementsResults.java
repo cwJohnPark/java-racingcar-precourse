@@ -10,7 +10,7 @@ public class CarMovementsResults {
         this.carMovementsResults = carMovementsResults;
     }
 
-    public boolean isSizeOf(int numberOfMovements) {
-        return carMovementsResults.size() == numberOfMovements;
+    public boolean isEqualMoveCount(MoveCount moveCount) {
+        return moveCount.isEqualTo(carMovementsResults.size());
     }
 }

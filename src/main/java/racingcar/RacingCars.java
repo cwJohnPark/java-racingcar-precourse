@@ -11,15 +11,15 @@ public class RacingCars {
         this.racingCars = racingCarList;
     }
 
-    public void moveAll(int numberOfMove, RandomMoveCondition moveCondition) {
-        if (numberOfMove <= 0) {
+    public void moveAll(MoveCount moveCount, RandomMoveCondition moveCondition) {
+        if (moveCount.isStopToMove()) {
             return;
         }
         for (RacingCar racingCar : racingCars) {
             racingCar.move(moveCondition);
         }
 
-        moveAll(numberOfMove-1, moveCondition);
+        moveAll(moveCount.decrease(), moveCondition);
     }
 
     public CarMovementsResults getCarsMovementResult() {

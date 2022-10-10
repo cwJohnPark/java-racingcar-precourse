@@ -11,14 +11,14 @@ class RacingCarsTest {
 
     @Test
     void N대의_자동차는_주어진_횟수_동안_전진_또는_멈출_수_있다() {
-        final int numberOfMove = 10;
+        final MoveCount numberOfMove = new MoveCount(10);
         RacingCars racingCars = getRacingCars(5);
 
         racingCars.moveAll(numberOfMove, new RandomMoveCondition(new NumberRange(0, 9), new Threshold(6)));
 
         CarMovementsResults carsMovementResults = racingCars.getCarsMovementResult();
 
-        assertThat(carsMovementResults.isSizeOf(numberOfMove));
+        assertThat(carsMovementResults.isEqualMoveCount(numberOfMove));
     }
 
     private RacingCars getRacingCars(int numberOfCars) {
