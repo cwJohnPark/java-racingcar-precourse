@@ -3,12 +3,12 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingCar {
+public class Car {
 
     private final CarName carName;
     private final List<MoveType> moveResult;
 
-    public RacingCar(CarName carName) {
+    public Car(CarName carName) {
         this.carName = carName;
         this.moveResult = new ArrayList<>();
     }

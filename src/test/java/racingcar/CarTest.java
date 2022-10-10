@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 
-class RacingCarTest {
+class CarTest {
 
     static final int MIN_RANDOM_NUMBER = 0;
     static final int MAX_RANDOM_NUMBER = 9;
@@ -33,12 +33,12 @@ class RacingCarTest {
 
         when(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER)).thenReturn(THRESHOLD_NUMBER_INCLUSIVE);
 
-        RacingCar racingCar = new RacingCar(new CarName("John"));
+        Car car = new Car(new CarName("John"));
         RandomMoveCondition randomMoveCondition = getRandomMoveCondition();
 
-        racingCar.move(randomMoveCondition);
+        car.move(randomMoveCondition);
 
-        assertThat(racingCar.getTotalMovements())
+        assertThat(car.getTotalMovements())
                 .isEqualTo(new Movements(MoveType.FORWARD));
     }
 
@@ -46,22 +46,22 @@ class RacingCarTest {
     void 자동차는_0에서_9사이에서_random_값을_가져와서_4미만일_경우_멈춘다() {
         when(Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER)).thenReturn(THRESHOLD_NUMBER_INCLUSIVE - 1);
 
-        RacingCar racingCar = new RacingCar(new CarName("John"));
+        Car car = new Car(new CarName("John"));
         RandomMoveCondition randomMoveCondition = getRandomMoveCondition();
 
-        racingCar.move(randomMoveCondition);
+        car.move(randomMoveCondition);
 
 
-        assertThat(racingCar.getTotalMovements())
+        assertThat(car.getTotalMovements())
                 .isEqualTo(new Movements(MoveType.STOP));
     }
 
     @Test
     void 자동차에_이름을_부여할_수_있다() {
         CarName carName = new CarName("John");
-        RacingCar racingCar = new RacingCar(carName);
+        Car car = new Car(carName);
 
-        assertThat(racingCar.getName()).isEqualTo(carName);
+        assertThat(car.getName()).isEqualTo(carName);
     }
 
     RandomMoveCondition getRandomMoveCondition() {

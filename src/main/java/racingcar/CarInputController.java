@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class RacingCarInputController {
+public class CarInputController {
 
     private final static String CAR_NAMES_PROMPT = "경주할 자동차 이름 (이름은 쉼표(,) 기준으로 구분)";
     private final static String MOVE_COUNT_PROMPT = "• 시도할회수";
@@ -13,7 +13,7 @@ public class RacingCarInputController {
 
     private final Scanner scanner;
 
-    public RacingCarInputController(Scanner scanner) {
+    public CarInputController(Scanner scanner) {
         this.scanner = scanner;
     }
 

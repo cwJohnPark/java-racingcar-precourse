@@ -3,20 +3,20 @@ package racingcar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingCars {
+public class Cars {
 
-    private final List<RacingCar> racingCars;
+    private final List<Car> cars;
 
-    public RacingCars(List<RacingCar> racingCarList) {
-        this.racingCars = racingCarList;
+    public Cars(List<Car> carList) {
+        this.cars = carList;
     }
 
     public void moveAll(MoveCount moveCount, RandomMoveCondition moveCondition) {
         if (moveCount.isStopToMove()) {
             return;
         }
-        for (RacingCar racingCar : racingCars) {
-            racingCar.move(moveCondition);
+        for (Car car : cars) {
+            car.move(moveCondition);
         }
 
         moveAll(moveCount.decrease(), moveCondition);
@@ -24,8 +24,8 @@ public class RacingCars {
 
     public CarMovementsResults getCarsMovementResult() {
         List<CarMovementsResult> movementsResults = new ArrayList<>();
-        for (RacingCar racingCar : racingCars) {
-            new CarMovementsResult(racingCar.getName(), racingCar.getTotalMovements());
+        for (Car car : cars) {
+            new CarMovementsResult(car.getName(), car.getTotalMovements());
         }
 
         return new CarMovementsResults(movementsResults);

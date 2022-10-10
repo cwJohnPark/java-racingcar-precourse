@@ -9,25 +9,25 @@ import java.util.Scanner;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class RacingCarInputControllerTest {
+class CarInputControllerTest {
 
     final String carNames = "woni,jihee,monky";
     final int MOVE_COUNT = 5;
 
-    RacingCarInputController inputController;
+    CarInputController inputController;
 
     void setCarNames() {
         setSystemOut();
         setCarNamesInStreams();
 
-        inputController = new RacingCarInputController(new Scanner(System.in));
+        inputController = new CarInputController(new Scanner(System.in));
     }
 
     void setMoveCount() {
         setSystemOut();
         setMoveCountInStreams();
 
-        inputController = new RacingCarInputController(new Scanner(System.in));
+        inputController = new CarInputController(new Scanner(System.in));
     }
 
     @Test
