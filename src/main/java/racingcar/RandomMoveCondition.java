@@ -2,7 +2,7 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class RandomMoveCondition {
+public class RandomMoveCondition implements MoveCondition {
 
     private final NumberRange numberRange;
     private final Threshold thresholdInclusive;

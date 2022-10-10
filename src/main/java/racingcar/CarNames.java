@@ -43,4 +43,18 @@ public class CarNames {
     public int hashCode() {
         return Objects.hash(carNames);
     }
+
+    @Override
+    public String toString() {
+        if (carNames.isEmpty()) {
+            return "";
+        }
+        List<String> carNameString = new ArrayList<>();
+
+        for (CarName carName : this.carNames) {
+            carNameString.add(carName.toString());
+        }
+
+        return String.join(",", carNames.toString());
+    }
 }

@@ -28,15 +28,19 @@ public class MoveCount {
         return Objects.hash(moveCount);
     }
 
-    public boolean isStopToMove() {
-        return moveCount <= 0;
-    }
-
-    public MoveCount decrease() {
-        return new MoveCount(moveCount-1);
-    }
-
     public boolean isEqualTo(int moveCount) {
         return this.moveCount == moveCount;
+    }
+
+    public boolean isEqualTo(MoveCount other) {
+        return other.isEqualTo(moveCount);
+    }
+
+    public boolean isGreaterThan(MoveCount other) {
+        return moveCount > other.moveCount;
+    }
+
+    public boolean isGreaterThanOrEqualTo(MoveCount moveCount) {
+        return isEqualTo(moveCount) || isGreaterThan(moveCount);
     }
 }

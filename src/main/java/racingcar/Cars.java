@@ -11,7 +11,7 @@ public class Cars {
         this.cars = carList;
     }
 
-    public void move(RandomMoveCondition moveCondition) {
+    public void move(MoveCondition moveCondition) {
         for (Car car : cars) {
             car.move(moveCondition);
         }
@@ -26,5 +26,34 @@ public class Cars {
         }
 
         return new CarMovementsResults(movementsResults);
+    }
+
+    public CarNames getWinners() {
+        CarNames winners = CarNames.createEmpty();
+        MoveCount mostForwardCount = getMostForwardCount();
+
+        for (Car car : cars) {
+            addIfEqualForwardCount(winners, mostForwardCount, car);
+        }
+
+        return winners;
+    }
+
+    private void addIfEqualForwardCount(CarNames winners, MoveCount mostForwardCount, Car car) {
+        if (car.isEqualForwardCount(mostForwardCount)) {
+            winners.add(car.getName());
+        }
+    }
+
+    private MoveCount getMostForwardCount() {
+        MoveCount mostForwardCount = new MoveCount(0);
+        for (Car car : cars) {
+            Movements movements = car.getMovements();
+            MoveCount forwardCount = movements.getForwardCount();
+            mostForwardCount =
+                    forwardCount.isGreaterThanOrEqualTo(mostForwardCount) ? forwardCount : mostForwardCount;
+        }
+
+        return mostForwardCount;
     }
 }

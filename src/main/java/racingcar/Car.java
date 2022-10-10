@@ -14,8 +14,8 @@ public class Car {
         return movements;
     }
 
-    public void move(RandomMoveCondition randomMoveCondition) {
-        if (randomMoveCondition.doMove()) {
+    public void move(MoveCondition moveCondition) {
+        if (moveCondition.doMove()) {
             movements.add(MoveType.FORWARD);
             return;
         }
@@ -24,5 +24,9 @@ public class Car {
 
     public CarName getName() {
         return carName;
+    }
+
+    public boolean isEqualForwardCount(MoveCount forwardCount) {
+        return movements.getForwardCount().isEqualTo(forwardCount);
     }
 }

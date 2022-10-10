@@ -47,4 +47,13 @@ public class Movements {
     public List<MoveType> getList() {
         return movements;
     }
+
+    public MoveCount getForwardCount() {
+        int forwardCount = 0;
+        for (MoveType movement : movements) {
+            forwardCount += (movement == MoveType.FORWARD) ? 1 : 0;
+        }
+        return new MoveCount(forwardCount);
+    }
+
 }
