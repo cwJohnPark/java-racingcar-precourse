@@ -40,6 +40,16 @@ class CarsTest {
         assertThat(winners).isEqualTo(new CarNames(new CarName("car-0")));
     }
 
+    @Test
+    void 우승자가_한_명_이상일_경우_쉼표_로_이름을_구분해_출력한다() {
+        cars.move(forwardMoveCondition);
+        cars.move(forwardMoveCondition);
+
+        CarNames winners = cars.getWinners();
+
+        assertThat(winners).isEqualTo(new CarNames(new CarName("car-0"), new CarName("car-1"), new CarName("car-2")));
+    }
+
     static class FirstCarMoveCondition implements MoveCondition {
         private int tryCount = 1;
 
