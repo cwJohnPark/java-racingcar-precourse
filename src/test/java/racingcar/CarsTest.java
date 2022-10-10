@@ -1,32 +1,34 @@
 package racingcar;
 
+import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CarsTest {
 
-    @Test
-    void N대의_자동차는_주어진_횟수_동안_전진_또는_멈출_수_있다() {
-        final MoveCount numberOfMove = new MoveCount(10);
-        Cars cars = getRacingCars(5);
+    RandomMoveCondition moveCondition = new RandomMoveCondition(
+            new NumberRange(0, 1), new Threshold(0));
 
-        cars.moveAll(numberOfMove, new RandomMoveCondition(new NumberRange(0, 9), new Threshold(6)));
+    Cars cars = new Cars(Lists.newArrayList(
+            new Car(new CarName("car-0")), new Car(new CarName("car-1")), new Car(new CarName("car-2"))));
+
+    @Test
+    void 자동차_경주__각_차수별로_이동거리를_알_수_있다() {
+
+        cars.move(moveCondition);
 
         CarMovementsResults carsMovementResults = cars.getCarsMovementResult();
 
-        assertThat(carsMovementResults.isEqualMoveCount(numberOfMove));
+        assertThat(carsMovementResults.getResult().split("\n"))
+                .containsExactly("car-0 : -", "car-1 : -", "car-2 : -");
+
+        cars.move(moveCondition);
+
+        carsMovementResults = cars.getCarsMovementResult();
+
+        assertThat(carsMovementResults.getResult().split("\n"))
+                .containsExactly("car-0 : --", "car-1 : --", "car-2 : --");
     }
 
-    private Cars getRacingCars(int numberOfCars) {
-        List<Car> carList = new ArrayList<>();
-
-        for (int i = 0; i < numberOfCars; i++) {
-            carList.add(new Car(new CarName("car-"+i)));
-        }
-        return new Cars(carList);
-    }
 }

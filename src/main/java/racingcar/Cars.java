@@ -11,21 +11,18 @@ public class Cars {
         this.cars = carList;
     }
 
-    public void moveAll(MoveCount moveCount, RandomMoveCondition moveCondition) {
-        if (moveCount.isStopToMove()) {
-            return;
-        }
+    public void move(RandomMoveCondition moveCondition) {
         for (Car car : cars) {
             car.move(moveCondition);
         }
-
-        moveAll(moveCount.decrease(), moveCondition);
     }
 
     public CarMovementsResults getCarsMovementResult() {
         List<CarMovementsResult> movementsResults = new ArrayList<>();
+
         for (Car car : cars) {
-            new CarMovementsResult(car.getName(), car.getTotalMovements());
+            movementsResults.add(
+                    new CarMovementsResult(car.getName(), car.getMovements()));
         }
 
         return new CarMovementsResults(movementsResults);

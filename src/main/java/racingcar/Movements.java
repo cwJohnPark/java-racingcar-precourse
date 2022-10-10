@@ -2,6 +2,7 @@ package racingcar;
 
 import org.assertj.core.util.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,6 +16,10 @@ public class Movements {
 
     public Movements(MoveType ...moveTypes) {
         this(Lists.newArrayList(moveTypes));
+    }
+
+    public static Movements create() {
+        return new Movements(new ArrayList<>());
     }
 
     @Override
@@ -33,5 +38,13 @@ public class Movements {
     @Override
     public int hashCode() {
         return Objects.hash(movements);
+    }
+
+    public void add(MoveType moveType) {
+        movements.add(moveType);
+    }
+
+    public List<MoveType> getList() {
+        return movements;
     }
 }

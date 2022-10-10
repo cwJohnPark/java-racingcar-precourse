@@ -1,28 +1,25 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
 
     private final CarName carName;
-    private final List<MoveType> moveResult;
+    private final Movements movements;
 
     public Car(CarName carName) {
         this.carName = carName;
-        this.moveResult = new ArrayList<>();
+        this.movements = Movements.create();
     }
 
-    public Movements getTotalMovements() {
-        return new Movements(moveResult);
+    public Movements getMovements() {
+        return movements;
     }
 
     public void move(RandomMoveCondition randomMoveCondition) {
         if (randomMoveCondition.doMove()) {
-            moveResult.add(MoveType.FORWARD);
+            movements.add(MoveType.FORWARD);
             return;
         }
-        moveResult.add(MoveType.STOP);
+        movements.add(MoveType.STOP);
     }
 
     public CarName getName() {

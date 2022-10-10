@@ -10,7 +10,13 @@ public class CarMovementsResults {
         this.carMovementsResults = carMovementsResults;
     }
 
-    public boolean isEqualMoveCount(MoveCount moveCount) {
-        return moveCount.isEqualTo(carMovementsResults.size());
+    public String getResult() {
+        StringBuilder result = new StringBuilder();
+        for (CarMovementsResult carMovementsResult : carMovementsResults) {
+            result.append(carMovementsResult.toString());
+            result.append("\n");
+        }
+
+        return result.toString();
     }
 }

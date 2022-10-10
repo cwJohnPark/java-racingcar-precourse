@@ -36,4 +36,9 @@ public class CarName {
     public int hashCode() {
         return Objects.hash(carName);
     }
+
+    @Override
+    public String toString() {
+        return carName;
+    }
 }

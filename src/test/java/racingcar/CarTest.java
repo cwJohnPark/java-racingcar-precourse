@@ -38,7 +38,7 @@ class CarTest {
 
         car.move(randomMoveCondition);
 
-        assertThat(car.getTotalMovements())
+        assertThat(car.getMovements())
                 .isEqualTo(new Movements(MoveType.FORWARD));
     }
 
@@ -52,7 +52,7 @@ class CarTest {
         car.move(randomMoveCondition);
 
 
-        assertThat(car.getTotalMovements())
+        assertThat(car.getMovements())
                 .isEqualTo(new Movements(MoveType.STOP));
     }
 

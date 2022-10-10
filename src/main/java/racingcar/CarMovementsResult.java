@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.List;
+
 public class CarMovementsResult {
 
     private final CarName name;
@@ -8,5 +10,21 @@ public class CarMovementsResult {
     public CarMovementsResult(CarName name, Movements movements) {
         this.name = name;
         this.movements = movements;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s : %s", name, getMovementsAsString());
+    }
+
+    private String getMovementsAsString() {
+        List<MoveType> moveTypes = movements.getList();
+
+        final StringBuilder builder = new StringBuilder();
+        for (MoveType moveType : moveTypes) {
+            builder.append(moveType == MoveType.FORWARD ? "-" : "");
+        }
+
+        return builder.toString();
     }
 }
