@@ -39,6 +39,10 @@ public class CarNames {
         return carNames.equals(carNames1.carNames);
     }
 
+    public List<CarName> getList() {
+        return carNames;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(carNames);
@@ -55,6 +59,6 @@ public class CarNames {
             carNameString.add(carName.toString());
         }
 
-        return String.join(",", carNames.toString());
+        return String.join(",", carNameString);
     }
 }

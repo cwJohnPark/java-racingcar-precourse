@@ -11,6 +11,14 @@ public class Cars {
         this.cars = carList;
     }
 
+    public Cars(CarNames carNames) {
+        cars = new ArrayList<>();
+        List<CarName> carNameList = carNames.getList();
+        for (CarName carName : carNameList) {
+            cars.add(new Car(carName));
+        }
+    }
+
     public void move(MoveCondition moveCondition) {
         for (Car car : cars) {
             car.move(moveCondition);

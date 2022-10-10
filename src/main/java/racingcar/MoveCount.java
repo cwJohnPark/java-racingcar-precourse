@@ -43,4 +43,8 @@ public class MoveCount {
     public boolean isGreaterThanOrEqualTo(MoveCount moveCount) {
         return isEqualTo(moveCount) || isGreaterThan(moveCount);
     }
+
+    public MoveCount decrease() {
+        return new MoveCount(moveCount-1);
+    }
 }
